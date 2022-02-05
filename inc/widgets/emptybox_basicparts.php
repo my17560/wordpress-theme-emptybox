@@ -119,34 +119,32 @@ class EmptyboxParts extends WP_Widget
 			}
 			break;
 		case 'post_navigation':
-			$ret = the_post_navigation(array(
-				'next_text' => $par_nexttext,
-				'prev_text' => $par_prevtext,
-				'screen_reader_text' => $par_screenreadertext,
-				'aria_label' => $par_arialable,
-				'class' => $par_class,
-				'in_same_term' => $par_insameterm,
-				'exclude_terms' => $par_excludedterms,
-			));
+			$opt = array();
+			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
+			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
+			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
+			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_class) $opt['class'] = $par_class;
+			if ($par_insameterm) $opt['in_same_term'] = $par_insameterm;
+			if ($par_excludedterms) $opt['exclude_terms'] = $par_excludedterms;
+			$ret = the_post_navigation($opt);
 			break;
 		case 'posts_navigation':
-			$ret = the_posts_navigation(array(
-				'next_text' => $par_nexttext,
-				'prev_text' => $par_prevtext,
-				'screen_reader_text' => $par_screenreadertext,
-				'aria_label' => $par_arialable,
-				'class' => $par_class,
-			));
+			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
+			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
+			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
+			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_class) $opt['class'] = $par_class;
+			$ret = the_post_navigation($opt);
 			break;
 		case 'posts_pagination':
-			$ret = the_posts_pagination(array(
-				'mid_size' => $par_midsize,
-				'next_text' => $par_nexttext,
-				'prev_text' => $par_prevtext,
-				'screen_reader_text' => $par_screenreadertext,
-				'aria_label' => $par_arialable,
-				'class' => $par_class,
-			));
+			if ($par_midsize) $opt['mid_size'] = $par_midsize;
+			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
+			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
+			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
+			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_class) $opt['class'] = $par_class;
+			$ret = the_post_navigation($opt);
 			break;
 		case 'tag_start':
 			$ret = $wrapper_start;
