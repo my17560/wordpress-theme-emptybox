@@ -29,6 +29,7 @@ class EmptyboxParts extends WP_Widget
 
 		// Init type names
 		$this->typeNames = array(
+			"none" => "(None)",
 			"site_title" => "Site Title",
 			"site_logo" => "Site Logo",
 			"entry_title" => "Entry Title",
@@ -187,7 +188,7 @@ class EmptyboxParts extends WP_Widget
 
 		// Get Variables
 
-		$type = ( $instance['type'] ? $instance['type'] : '' );
+		$type = ( $instance['type'] ? $instance['type'] : 'none' );
 		$wrapper = ( $instance['wrapper'] ? $instance['wrapper'] : '' );
 		$wrapper_id = ( $instance['wrapper_id'] ? $instance['wrapper_id'] : '' );
 		$wrapper_class = ( $instance['wrapper_class'] ? $instance['wrapper_class'] : '' );
@@ -234,6 +235,7 @@ class EmptyboxParts extends WP_Widget
 		<p class="emptybox-basicparts-type">
 		<label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Type:'); ?></label>
 		<select class="widefat" id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>">
+			<option value="none"<?php echo ($type == 'none' ? 'selected' : '') ?>>(None)</option>
 			<option value="site_title"<?php echo ($type == 'site_title' ? 'selected' : '') ?>>Site Title</option>
 			<option value="site_logo"<?php echo ($type == 'site_logo' ? 'selected' : '') ?>>Site Logo</option>
 			<option value="entry_title"<?php echo ($type == 'entry_title' ? 'selected' : '') ?>>Entry Title</option>
@@ -335,11 +337,20 @@ class EmptyboxParts extends WP_Widget
 		</p>
 
 		<script type="text/javascript">
-			(function(){
+			(function($){
 				let widget = jQuery('#<?php echo $this->get_field_id('title'); ?>').parent().parent();
+				$(widget).find('.emptybox-basicparts-type select').on('change', function(){
+					emptybox.initType(widget, this.value);
+				});
+
+				$(widget).find('.emptybox-basicparts-wrapper select').on('change', function(){
+					emptybox.initWrapper(widget, this.value);
+				});
+
+				// Init
 				emptybox.initType(widget, '<?php echo $type ?>')
 				emptybox.initWrapper(widget, '<?php echo $wrapper ?>')
-			})();
+			})(jQuery);
 		</script>
 </div>
 

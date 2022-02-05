@@ -94,25 +94,15 @@ var emptybox = (function ($) {
 
 	}
 
-	// Init widgets on load
-	$(document).ready(function(){
-		$('.widget-liquid-right .emptybox-basicparts-type select').on('change', function(){
-			let widget = $(this).parent().parent();
-
+	// Init a widget when added to a widget area
+	$(document).on("widget-added", function(event, widget){
+		$(widget).find('.emptybox-basicparts-type select').on('change', function(){
 			initType(widget, this.value);
 		});
 
-		$('.widget-liquid-right .emptybox-basicparts-wrapper select').on('change', function(){
-			let widget = $(this).parent().parent();
-
+		$(widget).find('.emptybox-basicparts-wrapper select').on('change', function(){
 			initWrapper(widget, this.value);
 		});
-	});
-
-	// Init a widget when added to widget area
-	$(document).on("widget-added", function(event, widget){
-		initType(widget, $(widget).find('.emptybox-basicparts-type select').value);
-		initWrapper(widget, $(widget).find('.emptybox-basicparts-wrapper select').value)
 	});
 
 	return {
