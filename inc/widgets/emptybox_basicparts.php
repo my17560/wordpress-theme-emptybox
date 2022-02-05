@@ -77,7 +77,7 @@ class EmptyboxParts extends WP_Widget
 		$par_screenreadertext = ( $instance['par_screenreadertext'] ? $instance['par_screenreadertext'] : '' );
 		$par_arialabel = ( $instance['par_arialable'] ? $instance['par_arialable'] : '' );
 		$par_class = ( $instance['par_class'] ? $instance['par_class'] : '' );
-		$par_insameterm = ( $instance['par_insameterm'] ? $instance['par_insameterm'] : true );
+		$par_insameterm = ( $instance['par_insameterm'] ? $instance['par_insameterm'] : false );
 		$par_excludedterms = ( $instance['par_excludedterms'] ? $instance['par_excludedterms'] : '' );
 		$par_taxonomy = ( $instance['par_taxonomy'] ? $instance['par_taxonomy'] : '' );
 
