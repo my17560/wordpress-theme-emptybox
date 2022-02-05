@@ -135,7 +135,7 @@ class EmptyboxParts extends WP_Widget
 			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
 			if ($par_arialable) $opt['aria_label'] = $par_arialable;
 			if ($par_class) $opt['class'] = $par_class;
-			$ret = the_post_navigation($opt);
+			$ret = the_posts_navigation($opt);
 			break;
 		case 'posts_pagination':
 			if ($par_midsize) $opt['mid_size'] = $par_midsize;
@@ -144,7 +144,7 @@ class EmptyboxParts extends WP_Widget
 			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
 			if ($par_arialable) $opt['aria_label'] = $par_arialable;
 			if ($par_class) $opt['class'] = $par_class;
-			$ret = the_post_navigation($opt);
+			$ret = the_posts_pagination($opt);
 			break;
 		case 'tag_start':
 			$ret = $wrapper_start;
