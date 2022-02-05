@@ -51,6 +51,7 @@ var emptybox = (function ($) {
 				$(widget).find('.emptybox-basicparts-par_screenreadertext').show();
 				$(widget).find('.emptybox-basicparts-par_arialabel').show();
 				$(widget).find('.emptybox-basicparts-par_class').show();
+				break;
 			case "posts_pagination":
 				$(widget).find('.emptybox-basicparts-par_midsize').show();
 				$(widget).find('.emptybox-basicparts-par_nexttext').show();
