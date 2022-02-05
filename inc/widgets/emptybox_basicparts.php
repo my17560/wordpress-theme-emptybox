@@ -103,6 +103,12 @@ class EmptyboxParts extends WP_Widget
 			$ret = get_the_post_thumbnail();
 			break;
 		case 'entry_tags':
+			if(has_tag()) {
+				$tags = get_the_tags(get_the_ID());
+				foreach($tags as $tag){
+					$ret .= '<a href="'.get_tag_link($tag->term_id).'">'. $tag->name.'</a>';
+				}
+			}
 			break;
 		case 'entry_createdate':
 			$ret = get_the_date($par_dateformat);
