@@ -66,7 +66,7 @@ class EmptyboxParts extends WP_Widget
 		$type = $instance['type'];
 		$wrapper_id = ( $instance['wrapper_id'] ? ' id="' . $instance['wrapper_id'] . '"' : '' );
 		$wrapper_class = ( $instance['wrapper_class'] ? ' class="' . $instance['wrapper_class'] . '"' : '' );
-		$wrapper_start = ( $instance['wrapper'] !== 'none' ? sprintf('<%s%s%s>' , $instance['wrapper'], $id, $class) : '' );
+		$wrapper_start = ( $instance['wrapper'] !== 'none' ? sprintf('<%s%s%s>' , $instance['wrapper'], $wrapper_id, $wrapper_class) : '' );
 		$wrapper_end = ( $instance['wrapper'] !== 'none' ? '</' . $instance['wrapper'] . '>' : '' );
 		$par_code = ( $instance['par_code'] ? $instance['par_code'] : '' );
 		$par_dateformat = ( $instance['par_dateformat'] ? $instance['par_dateformat'] : '' );
