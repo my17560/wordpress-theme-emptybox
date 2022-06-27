@@ -98,3 +98,21 @@ function emptybox_get_template_types()
 	return array($baseType, $subType);
 
 }
+
+// -----------------------------------------------------------------------------
+
+/**
+ * Get a value from an array.
+ *
+ * @return	Template type
+ */
+function emptybox_safeget($arr, $key, $default = null)
+{
+
+	if (array_key_exists($key, $arr)) {
+		return $arr[$key];
+	} else {
+		return $default;
+	}
+
+}
