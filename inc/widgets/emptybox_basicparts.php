@@ -65,21 +65,22 @@ class EmptyboxParts extends WP_Widget
 		// Get Variables
 
 		$type = $instance['type'];
-		$wrapper_id = ( $instance['wrapper_id'] ? ' id="' . $instance['wrapper_id'] . '"' : '' );
-		$wrapper_class = ( $instance['wrapper_class'] ? ' class="' . $instance['wrapper_class'] . '"' : '' );
-		$wrapper_start = ( $instance['wrapper'] !== 'none' ? sprintf('<%s%s%s>' , $instance['wrapper'], $wrapper_id, $wrapper_class) : '' );
-		$wrapper_end = ( $instance['wrapper'] !== 'none' ? '</' . $instance['wrapper'] . '>' : '' );
-		$par_code = ( $instance['par_code'] ? $instance['par_code'] : '' );
-		$par_dateformat = ( $instance['par_dateformat'] ? $instance['par_dateformat'] : '' );
-		$par_nexttext = ( $instance['par_nexttext'] ? $instance['par_nexttext'] : 'Next »' );
-		$par_prevtext = ( $instance['par_prevtext'] ? $instance['par_prevtext'] : '« Previous' );
-		$par_midsize = ( $instance['par_midsize'] ? $instance['par_midsize'] : 2 );
-		$par_screenreadertext = ( $instance['par_screenreadertext'] ? $instance['par_screenreadertext'] : '' );
-		$par_arialabel = ( $instance['par_arialable'] ? $instance['par_arialable'] : '' );
-		$par_class = ( $instance['par_class'] ? $instance['par_class'] : '' );
-		$par_insameterm = ( $instance['par_insameterm'] ? $instance['par_insameterm'] : false );
-		$par_excludedterms = ( $instance['par_excludedterms'] ? $instance['par_excludedterms'] : '' );
-		$par_taxonomy = ( $instance['par_taxonomy'] ? $instance['par_taxonomy'] : '' );
+		$wrapper_id = ( !empty($instance['wrapper_id']) ? ' id="' . $instance['wrapper_id'] . '"' : '' );
+		$wrapper_class = ( !empty($instance['wrapper_class']) ? ' class="' . $instance['wrapper_class'] . '"' : '' );
+		$wrapper = emptybox_safeget($instance, 'wrapper', 'none');
+		$wrapper_start = ( $wrapper !== 'none' ? sprintf('<%s%s%s>' , $wrapper, $wrapper_id, $wrapper_class) : '' );
+		$wrapper_end = ( $wrapper !== 'none' ? '</' . $wrapper . '>' : '' );
+		$par_code = emptybox_safeget($instance, 'par_code', '');
+		$par_dateformat = emptybox_safeget($instance, 'par_dateformat', '');
+		$par_nexttext = emptybox_safeget($instance, 'par_nexttext', 'Next »');
+		$par_prevtext = emptybox_safeget($instance, 'par_prevtext', '« Previous');
+		$par_midsize = emptybox_safeget($instance, 'par_midsize', 2);
+		$par_screenreadertext = emptybox_safeget($instance, 'par_screenreadertext', '');
+		$par_arialabel = emptybox_safeget($instance, 'par_ariable', '');
+		$par_class = emptybox_safeget($instance, 'par_class', '');
+		$par_insameterm = emptybox_safeget($instance, 'par_insameterm', false);
+		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
+		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
 
 		$ret = "";
 		switch ($type)
@@ -192,23 +193,23 @@ class EmptyboxParts extends WP_Widget
 
 		// Get Variables
 
-		$type = ( $instance['type'] ? $instance['type'] : 'none' );
-		$wrapper = ( $instance['wrapper'] ? $instance['wrapper'] : '' );
-		$wrapper_id = ( $instance['wrapper_id'] ? $instance['wrapper_id'] : '' );
-		$wrapper_class = ( $instance['wrapper_class'] ? $instance['wrapper_class'] : '' );
-		$wrapper_start = ( $instance['wrapper'] !== 'none' ? sprintf('<%s%s%s>' , $instance['wrapper'], $wrapper_id, $wrapper_class) : '' );
-		$wrapper_end = ( $instance['wrapper'] !== 'none' ? '</' . $instance['wrapper'] . '>' : '' );
-		$par_code = ( $instance['par_code'] ? $instance['par_code'] : '' );
-		$par_dateformat = ( $instance['par_dateformat'] ? $instance['par_dateformat'] : '' );
-		$par_nexttext = ( $instance['par_nexttext'] ? $instance['par_nexttext'] : '' );
-		$par_prevtext = ( $instance['par_prevtext'] ? $instance['par_prevtext'] : '' );
-		$par_midsize = ( $instance['par_midsize'] ? $instance['par_midsize'] : '' );
-		$par_screenreadertext = ( $instance['par_screenreadertext'] ? $instance['par_screenreadertext'] : '' );
-		$par_arialabel = ( $instance['par_arialable'] ? $instance['par_arialable'] : '' );
-		$par_class = ( $instance['par_class'] ? $instance['par_class'] : '' );
-		$par_insameterm = ( $instance['par_insameterm'] ? $instance['par_insameterm'] : '' );
-		$par_excludedterms = ( $instance['par_excludedterms'] ? $instance['par_excludedterms'] : '' );
-		$par_taxonomy = ( $instance['par_taxonomy'] ? $instance['par_taxonomy'] : '' );
+		$type = emptybox_safeget($instance, 'type', 'none');
+		$wrapper = emptybox_safeget($instance, 'wrapper', 'none');
+		$wrapper_id = emptybox_safeget($instance, 'wrapper_id', '');
+		$wrapper_class = emptybox_safeget($instance, 'wrapper_class', '');
+		$wrapper_start = ( $wrapper !== 'none' ? sprintf('<%s%s%s>' , $wrapper, $wrapper_id, $wrapper_class) : '' );
+		$wrapper_end = ( $wrapper !== 'none' ? '</' . $wrapper . '>' : '' );
+		$par_code = emptybox_safeget($instance, 'par_code', '');
+		$par_dateformat = emptybox_safeget($instance, 'par_dateformat', '');
+		$par_nexttext = emptybox_safeget($instance, 'par_nexttext', 'Next »');
+		$par_prevtext = emptybox_safeget($instance, 'par_prevtext', '« Previous');
+		$par_midsize = emptybox_safeget($instance, 'par_midsize', 2);
+		$par_screenreadertext = emptybox_safeget($instance, 'par_screenreadertext', '');
+		$par_arialabel = emptybox_safeget($instance, 'par_ariable', '');
+		$par_class = emptybox_safeget($instance, 'par_class', '');
+		$par_insameterm = emptybox_safeget($instance, 'par_insameterm', false);
+		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
+		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
 
 		// Decide Title
 
@@ -375,22 +376,22 @@ class EmptyboxParts extends WP_Widget
 	{
 
 		$instance = array();
-		$instance['title'] = (!empty($new_instance['title']) ? sanitize_text_field($new_instance['title']) : '');
-		$instance['type'] = (!empty($new_instance['type']) ? sanitize_text_field($new_instance['type']) : '');
-		$instance['wrapper'] = (!empty($new_instance['wrapper']) ? sanitize_text_field($new_instance['wrapper']) : '');
-		$instance['wrapper_id'] = (!empty($new_instance['wrapper_id']) ? sanitize_text_field($new_instance['wrapper_id']) : '');
-		$instance['wrapper_class'] = (!empty($new_instance['wrapper_class']) ? sanitize_text_field($new_instance['wrapper_class']) : '');
-		$instance['par_code'] = (!empty($new_instance['par_code']) ? $new_instance['par_code'] : '');
-		$instance['par_dateformat'] = (!empty($new_instance['par_dateformat']) ? $new_instance['par_dateformat'] : '');
-		$instance['par_nexttext'] = (!empty($new_instance['par_nexttext']) ? $new_instance['par_nexttext'] : '');
-		$instance['par_prevtext'] = (!empty($new_instance['par_prevtext']) ? $new_instance['par_prevtext'] : '');
-		$instance['par_midsize'] = (!empty($new_instance['par_midsize']) ? $new_instance['par_midsize'] : '');
-		$instance['par_screenreadertext'] = (!empty($new_instance['par_screenreadertext']) ? $new_instance['par_screenreadertext'] : '');
-		$instance['par_arialabel'] = (!empty($new_instance['par_arialabel']) ? $new_instance['par_arialabel'] : '');
-		$instance['par_class'] = (!empty($new_instance['par_class']) ? $new_instance['par_class'] : '');
-		$instance['par_insameterm'] = (!empty($new_instance['par_insameterm']) ? $new_instance['par_insameterm'] : '');
-		$instance['par_excludedterms'] = (!empty($new_instance['par_excludedterms']) ? $new_instance['par_excludedterms'] : '');
-		$instance['par_taxonomy'] = (!empty($new_instance['par_taxonomy']) ? $new_instance['par_taxonomy'] : '');
+		$instance['title'] = emptybox_safeget($new_instance, 'title', '');
+		$instance['type'] = emptybox_safeget($new_instance, 'type', '');
+		$instance['wrapper'] = emptybox_safeget($new_instance, 'wrapper', '');
+		$instance['wrapper_id'] = emptybox_safeget($new_instance, 'wrapper_id', '');
+		$instance['wrapper_class'] = emptybox_safeget($new_instance, 'wrapper_class', '');
+		$instance['par_code'] = emptybox_safeget($new_instance, 'par_code', '');
+		$instance['par_dateformat'] = emptybox_safeget($new_instance, 'par_dateformat', '');
+		$instance['par_nexttext'] = emptybox_safeget($new_instance, 'par_nexttext', '');
+		$instance['par_prevtext'] = emptybox_safeget($new_instance, 'par_prevtext', '');
+		$instance['par_midsize'] = emptybox_safeget($new_instance, 'par_midsize', '');
+		$instance['par_screenreadertext'] = emptybox_safeget($new_instance, 'par_screenreadertext', '');
+		$instance['par_arialabel'] = emptybox_safeget($new_instance, 'par_arialabel', '');
+		$instance['par_class'] = emptybox_safeget($new_instance, 'par_class', '');
+		$instance['par_insameterm'] = emptybox_safeget($new_instance, 'par_insameterm', '');
+		$instance['par_excludedterms'] = emptybox_safeget($new_instance, 'par_excludedterms', '');
+		$instance['par_taxonomy'] = emptybox_safeget($new_instance, 'par_taxonomy', '');
 
 		return $instance;
 
