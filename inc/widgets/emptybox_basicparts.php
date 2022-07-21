@@ -39,7 +39,7 @@ class EmptyboxParts extends WP_Widget
 			"entry_tags" => "Entry Tags",
 			"entry_createdate" => "Entry Create Date",
 			"entry_updatedate" => "Entry Modified Date",
-			"paged_title" => "Paged Title",
+			"archive_title" => "Archive Title",
 			"post_navigation" => "Post Navigation",
 			"posts_navigation" => "Posts Navigation",
 			"posts_pagination" => "Posts Pagination",
@@ -117,7 +117,7 @@ class EmptyboxParts extends WP_Widget
 		case 'entry_updatedate':
 			$ret = get_the_modified_date($par_dateformat);
 			break;
-		case 'paged_title':
+		case 'archive_title':
 			if (is_search()) {
     			$ret = __("Search Result") . ': ' . get_search_query();
 			} else if (is_home()) {
@@ -250,7 +250,7 @@ class EmptyboxParts extends WP_Widget
 			<option value="entry_tags"<?php echo ($type == 'entry_tags' ? 'selected' : '') ?>>Entry Tags</option>
 			<option value="entry_createdate"<?php echo ($type == 'entry_createdate' ? 'selected' : '') ?>>Entry Create Date</option>
 			<option value="entry_updatedate"<?php echo ($type == 'entry_updatedate' ? 'selected' : '') ?>>Entry Modified Date</option>
-			<option value="paged_title"<?php echo ($type == 'paged_title' ? 'selected' : '') ?>>Paged Title</option>
+			<option value="archive_title"<?php echo ($type == 'archive_title' ? 'selected' : '') ?>>Archive Title</option>
 			<option value="post_navigation"<?php echo ($type == 'post_navigation' ? 'selected' : '') ?>><?php echo $this->typeNames["post_navigation"]; ?></option>
 			<option value="posts_navigation"<?php echo ($type == 'posts_navigation' ? 'selected' : '') ?>>Posts Navigation</option>
 			<option value="posts_pagination"<?php echo ($type == 'posts_pagination' ? 'selected' : '') ?>>Posts Pagination</option>
