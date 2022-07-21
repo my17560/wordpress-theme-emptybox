@@ -6,30 +6,27 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 ?>
 
 <div id="content" class="site-content">
-	<?php //get_template_part('template-parts/entry-header-wide', $templateType, $args); ?>
+	<!-- Page Header -->
+	<?php get_template_part('template-parts/page-header', $subType, $args); ?>
+
 	<div class="wrapper">
+		<!-- Sidebar Left -->
 		<?php get_template_part('template-parts/sidebar-left', '', $args); ?>
 
 		<!-- Main Content -->
 		<main id="primary" class="site-main content-area">
-			<?php
-			// Page Header
-			get_template_part('template-parts/page-header', $subType, $args);
-
-			// Entry
-			get_template_part('template-parts/content-' . $baseType, $subType, $args);
-
-			// Page Footer
-			get_template_part('template-parts/page-footer', $subType, $args);
-			?>
+			<?php get_template_part('template-parts/content-' . $baseType, $subType, $args); ?>
 		</main>
 
+		<!-- Sidebar Right/Mobile -->
 		<?php
 		get_template_part('template-parts/sidebar-right', '', $args);
 		get_template_part('template-parts/sidebar-mobile', '', $args);
 		?>
 	</div>
-	<?php //get_template_part('template-parts/entry-footer-wide', $templateType, $args); ?>
+
+	<!-- Page Footer -->
+	<?php get_template_part('template-parts/page-footer', $subType, $args); ?>
 </div>
 
 <?php get_footer(); ?>
