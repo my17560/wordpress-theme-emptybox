@@ -6,11 +6,9 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 ?>
 
 <div id="content" class="site-content">
-	<!-- Page Header -->
 	<?php get_template_part('template-parts/page-header', $subType, $args); ?>
 
 	<div class="wrapper">
-		<!-- Sidebar Left -->
 		<?php get_template_part('template-parts/sidebar-left', '', $args); ?>
 
 		<!-- Main Content -->
@@ -18,14 +16,12 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 			<?php get_template_part('template-parts/content-' . $baseType, $subType, $args); ?>
 		</main>
 
-		<!-- Sidebar Right/Mobile -->
 		<?php
 		get_template_part('template-parts/sidebar-right', '', $args);
 		get_template_part('template-parts/sidebar-mobile', '', $args);
 		?>
 	</div>
 
-	<!-- Page Footer -->
 	<?php get_template_part('template-parts/page-footer', $subType, $args); ?>
 </div>
 
