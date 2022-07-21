@@ -6,10 +6,10 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 ?>
 
 <div id="content" class="site-content">
-	<?php get_template_part('template-parts/page-header', $subType, $args); ?>
+	<?php get_template_part('template-widgets/page-header', $subType, $args); ?>
 
 	<div class="wrapper">
-		<?php get_template_part('template-parts/sidebar-left', '', $args); ?>
+		<?php get_template_part('template-widgets/sidebar-left', $subType, $args); ?>
 
 		<!-- Main Content -->
 		<main id="primary" class="site-main content-area">
@@ -17,12 +17,12 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 		</main>
 
 		<?php
-		get_template_part('template-parts/sidebar-right', '', $args);
-		get_template_part('template-parts/sidebar-mobile', '', $args);
+		get_template_part('template-widgets/sidebar-right', $subType, $args);
+		get_template_part('template-widgets/sidebar-mobile', $subType, $args);
 		?>
 	</div>
 
-	<?php get_template_part('template-parts/page-footer', $subType, $args); ?>
+	<?php get_template_part('template-widgets/page-footer', $subType, $args); ?>
 </div>
 
 <?php get_footer(); ?>

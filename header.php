@@ -7,4 +7,4 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<?php get_template_part('template-parts/site-header'); ?>
+	<?php get_template_part('template-widgets/site-header'); ?>

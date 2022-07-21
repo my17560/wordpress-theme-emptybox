@@ -1,7 +1,7 @@
-	<?php get_template_part('template-parts/site-footer'); ?>
+	<?php get_template_part('template-widgets/site-footer'); ?>
 </div>
 
-<?php get_template_part('template-parts/site-utils'); ?>
+<?php get_template_part('template-widgets/site-utils'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
