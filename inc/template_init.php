@@ -144,8 +144,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (Paged)', 'emptybox'),
-			'id'            => 'page-header-paged',
+			'name'          => esc_html__('Page Header (Archive)', 'emptybox'),
+			'id'            => 'page-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -155,8 +155,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (Paged)', 'emptybox'),
-			'id'            => 'entry-header-paged',
+			'name'          => esc_html__('Archive Header (Archive)', 'emptybox'),
+			'id'            => 'archive-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -166,8 +166,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (Paged)', 'emptybox'),
-			'id'            => 'entry-content-paged',
+			'name'          => esc_html__('Entry Header (Archive)', 'emptybox'),
+			'id'            => 'entry-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -177,8 +177,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (Paged)', 'emptybox'),
-			'id'            => 'entry-footer-paged',
+			'name'          => esc_html__('Entry Content (Archive)', 'emptybox'),
+			'id'            => 'entry-content-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -188,8 +188,30 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (Paged)', 'emptybox'),
-			'id'            => 'page-footer-paged',
+			'name'          => esc_html__('Entry Footer (Archive)', 'emptybox'),
+			'id'            => 'entry-footer-archive',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Archive Footer (Archive)', 'emptybox'),
+			'id'            => 'archive-footer-archive',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Page Footer (Archive)', 'emptybox'),
+			'id'            => 'page-footer-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -200,8 +222,8 @@ function emptybox_widgets_init()
 	/*
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (Paged - No Result)', 'emptybox'),
-			'id'            => 'page-header-paged-noresult',
+			'name'          => esc_html__('Page Header (Archive - No Result)', 'emptybox'),
+			'id'            => 'page-header-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -212,8 +234,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (Paged - No Result)', 'emptybox'),
-			'id'            => 'entry-header-paged-noresult',
+			'name'          => esc_html__('Entry Header (Archive - No Result)', 'emptybox'),
+			'id'            => 'entry-header-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -223,8 +245,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (Paged - No Result)', 'emptybox'),
-			'id'            => 'entry-content-paged-noresult',
+			'name'          => esc_html__('Entry Content (Archive - No Result)', 'emptybox'),
+			'id'            => 'entry-content-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -234,8 +256,8 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (Paged - No Result)', 'emptybox'),
-			'id'            => 'entry-footer-paged-noresult',
+			'name'          => esc_html__('Entry Footer (Archive - No Result)', 'emptybox'),
+			'id'            => 'entry-footer-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -246,8 +268,8 @@ function emptybox_widgets_init()
 	/*
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (Paged - No Result)', 'emptybox'),
-			'id'            => 'page-footer-paged-noresult',
+			'name'          => esc_html__('Page Footer (Archive - No Result)', 'emptybox'),
+			'id'            => 'page-footer-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',
@@ -359,6 +381,118 @@ function emptybox_widgets_init()
 		array(
 			'name'          => esc_html__('Site Utils', 'emptybox'),
 			'id'            => 'site-utils',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	// Delete later
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Page Header (Paged)', 'emptybox'),
+			'id'            => 'page-header-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Archive Header (Paged)', 'emptybox'),
+			'id'            => 'archive-header-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Header (Paged)', 'emptybox'),
+			'id'            => 'entry-header-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Content (Paged)', 'emptybox'),
+			'id'            => 'entry-content-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Footer (Paged)', 'emptybox'),
+			'id'            => 'entry-footer-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Archive Footer (Paged)', 'emptybox'),
+			'id'            => 'archive-footer-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Page Footer (Paged)', 'emptybox'),
+			'id'            => 'page-footer-paged',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Header (Paged - No Result)', 'emptybox'),
+			'id'            => 'entry-header-paged-noresult',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Content (Paged - No Result)', 'emptybox'),
+			'id'            => 'entry-content-paged-noresult',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('@Entry Footer (Paged - No Result)', 'emptybox'),
+			'id'            => 'entry-footer-paged-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '',

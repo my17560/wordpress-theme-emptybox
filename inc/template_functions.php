@@ -55,7 +55,7 @@ function emptybox_get_template_types()
 	{
 		$baseType = "404";
 	} else if (is_home() && is_front_page()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "home";
 	} else if (is_home()) {
 		$baseType = "singular";
@@ -70,28 +70,28 @@ function emptybox_get_template_types()
 		$baseType = "singular";
 		$subType = "single";
 	} else if (is_search()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "search";
 	} else if (is_category()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "category";
 	} else if (is_tag()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "tag";
 	} else if (is_date()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "date";
 	} else if (is_year()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "year";
 	} else if (is_month()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "month";
 	} else if (is_day()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "day";
 	} else if (is_author()) {
-		$baseType = "paged";
+		$baseType = "archive";
 		$subType = "author";
 	}
 

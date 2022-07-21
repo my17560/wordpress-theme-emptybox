@@ -1,5 +1,9 @@
 <?php
 $havePosts = have_posts();
+
+// Archive Header
+get_template_part('template-parts/archive-header', $args["subType"], $args);
+
 if ($havePosts) {
 	// Has Results
 	while ($havePosts) {
@@ -25,4 +29,7 @@ if ($havePosts) {
 	</section>
 <?php
 }
+
+// Archive Footer
+get_template_part('template-parts/archive-footer', $args["subType"], $args);
 ?>
