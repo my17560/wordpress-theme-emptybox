@@ -3,6 +3,8 @@
 <?php if ($sidebarId) : ?>
 	<!-- Page Footer -->
 	<footer class="page-footer">
-		<?php dynamic_sidebar($sidebarId); ?>
+		<div class="wrapper">
+			<?php dynamic_sidebar($sidebarId); ?>
+		</div>
 	</footer>
 <?php endif; ?>

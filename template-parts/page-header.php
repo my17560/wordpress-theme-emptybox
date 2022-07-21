@@ -3,6 +3,8 @@
 <?php if ($sidebarId) : ?>
 	<!-- Page Header -->
 	<header class="page-header">
-		<?php dynamic_sidebar($sidebarId); ?>
+		<div class="wrapper">
+			<?php dynamic_sidebar($sidebarId); ?>
+		</div>
 	</header>
 <?php endif; ?>
