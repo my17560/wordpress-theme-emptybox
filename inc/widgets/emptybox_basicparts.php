@@ -130,7 +130,7 @@ class EmptyboxParts extends WP_Widget
 			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
 			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
 			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
-			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_arialabel) $opt['aria_label'] = $par_arialabel;
 			if ($par_class) $opt['class'] = $par_class;
 			if ($par_insameterm) $opt['in_same_term'] = $par_insameterm;
 			if ($par_excludedterms) $opt['exclude_terms'] = $par_excludedterms;
@@ -140,7 +140,7 @@ class EmptyboxParts extends WP_Widget
 			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
 			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
 			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
-			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_arialabel) $opt['aria_label'] = $par_arialabel;
 			if ($par_class) $opt['class'] = $par_class;
 			$ret = the_posts_navigation($opt);
 			break;
@@ -149,7 +149,7 @@ class EmptyboxParts extends WP_Widget
 			if ($par_nexttext) $opt['next_text'] = $par_nexttext;
 			if ($par_prevtext) $opt['prev_text'] = $par_prevtext;
 			if ($par_screenreadertext) $opt['screen_reader_text'] = $par_screenreadertext;
-			if ($par_arialable) $opt['aria_label'] = $par_arialable;
+			if ($par_arialabel) $opt['aria_label'] = $par_arialabel;
 			if ($par_class) $opt['class'] = $par_class;
 			$ret = the_posts_pagination($opt);
 			break;
