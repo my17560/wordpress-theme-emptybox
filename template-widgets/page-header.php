@@ -2,7 +2,7 @@
 
 <?php if ($sidebarId) : ?>
 	<!-- Page Header -->
-	<header class="page-header">
+	<header id="page-header" class="page-header">
 		<div class="wrapper">
 			<?php dynamic_sidebar($sidebarId); ?>
 		</div>

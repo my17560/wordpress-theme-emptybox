@@ -2,7 +2,7 @@
 
 <?php if ($sidebarId) : ?>
 	<!-- Page Footer -->
-	<footer class="page-footer">
+	<footer id="page-footer" class="page-footer">
 		<div class="wrapper">
 			<?php dynamic_sidebar($sidebarId); ?>
 		</div>
