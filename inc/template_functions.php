@@ -55,7 +55,7 @@ function emptybox_get_template_types()
 	{
 		$baseType = "404";
 	} else if (is_home() && is_front_page()) {
-		$baseType = "singular";
+		$baseType = "archive";
 		$subType = "home";
 	} else if (is_home()) {
 		$baseType = "singular";
