@@ -379,6 +379,17 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
+			'name'          => esc_html__('Head Utils', 'emptybox'),
+			'id'            => 'head-utils',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => esc_html__('Site Utils', 'emptybox'),
 			'id'            => 'site-utils',
 			'before_widget' => '',
