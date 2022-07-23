@@ -28,9 +28,13 @@ var emptybox = (function ($) {
 		$(widget).find('.emptybox-basicparts-par_insameterm').hide();
 		$(widget).find('.emptybox-basicparts-par_excludedterms').hide();
 		$(widget).find('.emptybox-basicparts-par_taxonomy').hide();
+		$(widget).find('.emptybox-basicparts-par_thumbnailsize').hide();
 
 		// Show
 		switch (type) {
+			case "entry_thumbnail":
+				$(widget).find('.emptybox-basicparts-par_thumbnailsize').show();
+				break;
 			case "entry_createdate":
 			case "entry_updatedate":
 				$(widget).find('.emptybox-basicparts-par_dateformat').show();

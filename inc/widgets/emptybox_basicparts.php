@@ -81,6 +81,7 @@ class EmptyboxParts extends WP_Widget
 		$par_insameterm = emptybox_safeget($instance, 'par_insameterm', false);
 		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
 		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
+		$par_thumbnailsize = emptybox_safeget($instance, 'par_thumbnailsize', '');
 
 		$ret = "";
 		switch ($type)
@@ -101,7 +102,7 @@ class EmptyboxParts extends WP_Widget
 			$ret = apply_filters('the_excerpt', get_the_excerpt());
 			break;
 		case 'entry_thumbnail':
-			$ret = get_the_post_thumbnail();
+			$ret = get_the_post_thumbnail(get_the_ID(), $par_thumbnailsize);
 			break;
 		case 'entry_tags':
 			if(has_tag()) {
@@ -210,6 +211,7 @@ class EmptyboxParts extends WP_Widget
 		$par_insameterm = emptybox_safeget($instance, 'par_insameterm', false);
 		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
 		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
+		$par_thumbnailsize = emptybox_safeget($instance, 'par_thumbnailsize', '');
 
 		// Decide Title
 
@@ -341,6 +343,15 @@ class EmptyboxParts extends WP_Widget
 		<input class="widefat" id="<?php echo $this->get_field_id('par_taxonomy'); ?>" name="<?php echo $this->get_field_name('par_taxonomy'); ?>" type="text" value="<?php echo esc_attr($par_taxonomy); ?>" />
 		</p>
 
+		<p class="emptybox-basicparts-par_thumbnailsize">
+		<label for="<?php echo $this->get_field_id('par_thumbnailsize'); ?>"><?php _e('Thumbnail Size:'); ?></label>
+		<select class="widefat" id="<?php echo $this->get_field_id('par_thumbnailsize'); ?>" name="<?php echo $this->get_field_name('par_thumbnailsize'); ?>">
+			<option value="full"<?php echo ($par_thumbnailsize == 'full' ? 'selected' : '') ?>>full</option>
+			<option value="thumbnail"<?php echo ($par_thumbnailsize == 'thumbnail' ? 'selected' : '') ?>>thumbnail</option>
+			<option value="medium"<?php echo ($par_thumbnailsize == 'medium' ? 'selected' : '') ?>>medium</option>
+			<option value="large"<?php echo ($par_thumbnailsize == 'large' ? 'selected' : '') ?>>large</option>
+		</select>
+
 		<script type="text/javascript">
 			(function($){
 				let widget = jQuery('#<?php echo $this->get_field_id('title'); ?>').parent().parent();
@@ -392,6 +403,7 @@ class EmptyboxParts extends WP_Widget
 		$instance['par_insameterm'] = emptybox_safeget($new_instance, 'par_insameterm', '');
 		$instance['par_excludedterms'] = emptybox_safeget($new_instance, 'par_excludedterms', '');
 		$instance['par_taxonomy'] = emptybox_safeget($new_instance, 'par_taxonomy', '');
+		$instance['par_thumbnailsize'] = emptybox_safeget($new_instance, 'par_thumbnailsize', '');
 
 		return $instance;
 
