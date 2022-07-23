@@ -64,6 +64,7 @@ class EmptyboxParts extends WP_Widget
 
 		// Get Variables
 
+		$title = emptybox_safeget($instance, 'title', '');
 		$type = $instance['type'];
 		$wrapper_id = ( !empty($instance['wrapper_id']) ? ' id="' . $instance['wrapper_id'] . '"' : '' );
 		$wrapper_class = ( !empty($instance['wrapper_class']) ? ' class="' . $instance['wrapper_class'] . '"' : '' );
@@ -194,6 +195,7 @@ class EmptyboxParts extends WP_Widget
 
 		// Get Variables
 
+		$title = emptybox_safeget($instance, 'title', '');
 		$type = emptybox_safeget($instance, 'type', 'none');
 		$wrapper = emptybox_safeget($instance, 'wrapper', 'none');
 		$wrapper_id = emptybox_safeget($instance, 'wrapper_id', '');
@@ -212,29 +214,14 @@ class EmptyboxParts extends WP_Widget
 		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
 		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
 		$par_thumbnailsize = emptybox_safeget($instance, 'par_thumbnailsize', '');
-
-		// Decide Title
-
-		$title = $this->typeNames[$type];
-		if ($type === 'html') {
-			$title .= ": " . $instance['code'];
-		} else if ($type === 'tag_start') {
-			$title .= ": " . $wrapper;
-		} else if ($type === 'tag_end') {
-			$title .= ": " . $wrapper;
-		} else {
-			$title = $this->typeNames[$type];
-		}
 		?>
 
 <div class="emptybox-basicparts">
 		<!-- Title -->
 
-		<p>
-<!--
+		<p class="emptybox-basicparts-title">
 		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
--->
-		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="hidden" value="<?php echo esc_attr($title); ?>" />
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
 		<!-- Type -->

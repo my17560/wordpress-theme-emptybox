@@ -7,6 +7,28 @@
 // =============================================================================
 
 var emptybox = (function ($) {
+	// Init type names
+	var typeNames = {
+		"none": "(None)",
+		"site_title": "Site Title",
+		"site_logo": "Site Logo",
+		"entry_title": "Entry Title",
+		"entry_content": "Entry Content",
+		"entry_excerpt": "Entry Excerpt",
+		"entry_thumbnail": "Entry Thumbnail",
+		"entry_tags": "Entry Tags",
+		"entry_createdate": "Entry Create Date",
+		"entry_updatedate": "Entry Modified Date",
+		"archive_title": "Archive Title",
+		"post_navigation": "Post Navigation",
+		"posts_navigation": "Posts Navigation",
+		"posts_pagination": "Posts Pagination",
+		"tag_start": "Start Tag",
+		"tag_end": "End Tag",
+		"html": "Custom HTML",
+		"code": "Code",
+	};
+
 	/**
 	 * Hide/Show elements according to type.
 	 *
@@ -70,6 +92,11 @@ var emptybox = (function ($) {
 				break;
 		}
 
+		// Set default title if the widget is not saved yet
+		if ($(widget).attr('__emptybox_basicparts_new')) {
+			$(widget).find('.emptybox-basicparts-title input').val(typeNames[type]);
+		}
+
 	}
 
 	/**
@@ -101,17 +128,32 @@ var emptybox = (function ($) {
 
 	// Init a widget when added to a widget area
 	$(document).on("widget-added", function(event, widget){
-		$(widget).find('.emptybox-basicparts-type select').on('change', function(){
-			initType(widget, this.value);
-		});
+		if ($(widget).find('.id_base').val() === 'emptybox_parts') {
+			// Mark this is new
+			$(widget).attr('__emptybox_basicparts_new', true);
 
-		$(widget).find('.emptybox-basicparts-wrapper select').on('change', function(){
-			initWrapper(widget, this.value);
-		});
+			$(widget).find('.emptybox-basicparts-type select').on('change', function(){
+				initType(widget, this.value);
+			});
+
+			$(widget).find('.emptybox-basicparts-wrapper select').on('change', function(){
+				initWrapper(widget, this.value);
+			});
+		}
+	});
+
+	// Init a widget when saved
+	$(document).on("widget-updated", function(event, widget){
+		console.log("@@@updated", widget);
+		if ($(widget).find('.id_base').val() === 'emptybox_parts') {
+			// Remove new flag
+			$(widget).removeAttr('__emptybox_basicparts_new');
+		}
 	});
 
 	return {
 		"initWrapper": initWrapper,
 		"initType": initType,
 	};
+
 })(jQuery);
