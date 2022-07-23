@@ -15,6 +15,6 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, custo
 */
 /* ========================================================================== */
 
-.site-content .wrapper {
+.page-content > .wrapper {
 	display: flex;
 }
