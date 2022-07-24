@@ -83,6 +83,11 @@ class EmptyboxParts extends WP_Widget
 		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
 		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
 		$par_thumbnailsize = emptybox_safeget($instance, 'par_thumbnailsize', '');
+		$par_archive_search = emptybox_safeget($instance, 'par_archive_search', '');
+		$par_archive_tag  = emptybox_safeget($instance, 'par_archive_tag', '');
+		$par_archive_date = emptybox_safeget($instance, 'par_archive_date', '');
+		$par_archive_dateformat = emptybox_safeget($instance, 'par_archive_dateformat', '');
+		$par_archive_category = emptybox_safeget($instance, 'par_archive_category', '');
 
 		$ret = "";
 		switch ($type)
@@ -120,11 +125,32 @@ class EmptyboxParts extends WP_Widget
 			$ret = get_the_modified_date($par_dateformat);
 			break;
 		case 'archive_title':
+			$archive_class = 'archive-title';
+			$archive_title = "";
 			if (is_search()) {
-    			$ret = __("Search Result") . ': ' . get_search_query();
-			} else if (is_home()) {
-			} else if (!is_search()) {
-    			$ret = get_the_archive_title();
+				$icon = '<i class="fas fa-search"></i>';
+				$archive_class .= ' search';
+				$archive_title = get_search_query();
+				$archive_msg = $par_archive_search;
+			} else if (is_date()) {
+				$icon = '<i class="fas fa-calendar"></i>';
+				$archive_class .= " date";
+				$archive_title = get_the_time($par_archive_dateformat);
+				$archive_msg = $par_archive_date;
+			} else if (is_tag()) {
+				$icon = '<i class="fas fa-tag"></i>';
+				$archive_class .= " tag";
+				$archive_title = single_cat_title("", false);
+				$archive_msg = $par_archive_tag;
+			} else if (is_category()) {
+				$icon = '<i class="fas fa-folder"></i>';
+				$archive_class .= " category";
+				$archive_title = single_cat_title("", false);
+				$archive_msg = $par_archive_category;
+			}
+
+			if ($archive_title) {
+				$ret = sprintf( esc_html__($archive_msg, 'myscribblenet' ), '<span class="' . $archive_class . '">' . $archive_title . '</span>' );
 			}
 			break;
 		case 'post_navigation':
@@ -214,6 +240,11 @@ class EmptyboxParts extends WP_Widget
 		$par_excludedterms = emptybox_safeget($instance, 'par_excludedterms', '');
 		$par_taxonomy = emptybox_safeget($instance, 'par_taxonomy', '');
 		$par_thumbnailsize = emptybox_safeget($instance, 'par_thumbnailsize', '');
+		$par_archive_search = emptybox_safeget($instance, 'par_archive_search', '');
+		$par_archive_tag  = emptybox_safeget($instance, 'par_archive_tag', '');
+		$par_archive_date = emptybox_safeget($instance, 'par_archive_date', '');
+		$par_archive_dateformat = emptybox_safeget($instance, 'par_archive_dateformat', '');
+		$par_archive_category = emptybox_safeget($instance, 'par_archive_category', '');
 		?>
 
 <div class="emptybox-basicparts">
@@ -339,6 +370,25 @@ class EmptyboxParts extends WP_Widget
 			<option value="large"<?php echo ($par_thumbnailsize == 'large' ? 'selected' : '') ?>>large</option>
 		</select>
 
+		<p class="emptybox-basicparts-par_archive_search">
+		<label for="<?php echo $this->get_field_id('par_archive_search'); ?>"><?php _e('Message - Search:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('par_archive_search'); ?>" name="<?php echo $this->get_field_name('par_archive_search'); ?>" type="text" value="<?php echo esc_attr($par_archive_search); ?>" />
+		</p>
+		<p class="emptybox-basicparts-par_archive_tag">
+		<label for="<?php echo $this->get_field_id('par_archive_tag'); ?>"><?php _e('Message - Tag:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('par_archive_tag'); ?>" name="<?php echo $this->get_field_name('par_archive_tag'); ?>" type="text" value="<?php echo esc_attr($par_archive_tag); ?>" />
+		</p>
+		<p class="emptybox-basicparts-par_archive_date">
+		<label for="<?php echo $this->get_field_id('par_archive_date'); ?>"><?php _e('Message - Date:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('par_archive_date'); ?>" name="<?php echo $this->get_field_name('par_archive_date'); ?>" type="text" value="<?php echo esc_attr($par_archive_date); ?>" />
+		<input class="widefat" id="<?php echo $this->get_field_id('par_archive_dateformat'); ?>" name="<?php echo $this->get_field_name('par_archive_dateformat'); ?>" type="text" value="<?php echo esc_attr($par_archive_dateformat); ?>" />
+		</p>
+		<p class="emptybox-basicparts-par_archive_category">
+		<label for="<?php echo $this->get_field_id('par_archive_category'); ?>"><?php _e('Message - Category:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('par_archive_category'); ?>" name="<?php echo $this->get_field_name('par_archive_category'); ?>" type="text" value="<?php echo esc_attr($par_archive_category); ?>" />
+		</p>
+
+
 		<script type="text/javascript">
 			(function($){
 				let widget = jQuery('#<?php echo $this->get_field_id('title'); ?>').parent().parent();
@@ -391,6 +441,11 @@ class EmptyboxParts extends WP_Widget
 		$instance['par_excludedterms'] = emptybox_safeget($new_instance, 'par_excludedterms', '');
 		$instance['par_taxonomy'] = emptybox_safeget($new_instance, 'par_taxonomy', '');
 		$instance['par_thumbnailsize'] = emptybox_safeget($new_instance, 'par_thumbnailsize', '');
+		$instance['par_archive_search'] = emptybox_safeget($new_instance, 'par_archive_search', '');
+		$instance['par_archive_tag']  = emptybox_safeget($new_instance, 'par_archive_tag', '');
+		$instance['par_archive_date'] = emptybox_safeget($new_instance, 'par_archive_date', '');
+		$instance['par_archive_dateformat'] = emptybox_safeget($new_instance, 'par_archive_dateformat', '');
+		$instance['par_archive_category'] = emptybox_safeget($new_instance, 'par_archive_category', '');
 
 		return $instance;
 

@@ -51,6 +51,11 @@ var emptybox = (function ($) {
 		$(widget).find('.emptybox-basicparts-par_excludedterms').hide();
 		$(widget).find('.emptybox-basicparts-par_taxonomy').hide();
 		$(widget).find('.emptybox-basicparts-par_thumbnailsize').hide();
+		$(widget).find('.emptybox-basicparts-par_archive_search').hide();
+		$(widget).find('.emptybox-basicparts-par_archive_tag').hide();
+		$(widget).find('.emptybox-basicparts-par_archive_date').hide();
+		$(widget).find('.emptybox-basicparts-par_archive_dateformat').hide();
+		$(widget).find('.emptybox-basicparts-par_archive_category').hide();
 
 		// Show
 		switch (type) {
@@ -89,6 +94,13 @@ var emptybox = (function ($) {
 			case "html":
 			case "code":
 				$(widget).find('.emptybox-basicparts-par_code').show();
+				break;
+			case "archive_title":
+				$(widget).find('.emptybox-basicparts-par_archive_search').show();
+				$(widget).find('.emptybox-basicparts-par_archive_tag').show();
+				$(widget).find('.emptybox-basicparts-par_archive_date').show();
+				$(widget).find('.emptybox-basicparts-par_archive_dateformat').show();
+				$(widget).find('.emptybox-basicparts-par_archive_category').show();
 				break;
 		}
 
