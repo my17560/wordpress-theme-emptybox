@@ -10,13 +10,13 @@ if ($havePosts) {
 		the_post();
 		$args = array("baseType" => $args["baseType"], "subType" => $args["subType"], "havePosts" => $havePosts);
 ?>
-		<a href="<?php the_permalink() ?>">
+		<?php if (get_theme_mod('archive_linkarticle')) echo '<a href="' . get_permalink() . '">'; ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php get_template_part('template-widgets/entry-header', $args["subType"], $args); ?>
 				<?php get_template_part('template-widgets/entry-content', $args["subType"], $args); ?>
 				<?php get_template_part('template-widgets/entry-footer', $args["subType"], $args); ?>
 			</article>
-		</a>
+		<?php if (get_theme_mod('archive_linkarticle')) echo "</a>" ?>
 <?php
 		$havePosts = have_posts();
 	}

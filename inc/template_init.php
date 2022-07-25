@@ -21,6 +21,44 @@ function emptybox_setup()
 }
 add_action('after_setup_theme', 'emptybox_setup');
 
+function emptybox_customize_register($wp_customize)
+{
+
+	$wp_customize->add_panel(
+		'emptybox_options',
+		array(
+			'title'			=> __('Options'),
+			'priority'		=> 120,
+		)
+	);
+
+	$wp_customize->add_section(
+		'emptybox_options_archive',
+		array(
+			'title'			=> 'Archive Pages',
+			'panel'			=> 'emptybox_options',
+			'priority'		=> 1,
+		)
+	);
+
+	$wp_customize->add_setting('archive_linkarticle');
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'archive_linkarticle',
+			array(
+				'label'		=> __('Link to each article'),
+				'section'	=> 'emptybox_options_archive',
+				'settings'	=> 'archive_linkarticle',
+				'priority'	=> 1,
+				'type'		=> 'checkbox',
+			)
+		)
+	);
+
+}
+add_action('customize_register', 'emptybox_customize_register');
+
 // -----------------------------------------------------------------------------
 
 /**
