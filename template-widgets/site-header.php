@@ -1,6 +1,6 @@
 <?php if (is_active_sidebar('site-header')) : ?>
 	<!-- Site Header -->
-	<header id="header" class="site-header">
+	<header id="site-header" class="site-header">
 		<div class="wrapper">
 			<?php dynamic_sidebar('site-header'); ?>
 		</div>

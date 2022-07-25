@@ -5,7 +5,7 @@ $havePosts =  have_posts();
 $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $havePosts);
 ?>
 
-<main id="content" class="site-content">
+<main id="site-content" class="site-content">
 	<?php get_template_part('template-widgets/page-header', $subType, $args); ?>
 
 	<div id="page-content" class="page-content">
@@ -13,7 +13,7 @@ $args = array("baseType" => $baseType, "subType" => $subType, "havePosts" => $ha
 			<?php get_template_part('template-widgets/sidebar-left', $subType, $args); ?>
 
 			<!-- Main Content -->
-			<main id="primary" class="site-main content-area">
+			<main id="site-main" class="site-main">
 				<?php get_template_part('template-parts/content-' . $baseType, $subType, $args); ?>
 			</main>
 
