@@ -3,7 +3,7 @@
 <?php if ($sidebarId) : ?>
 	<!-- Page Header -->
 	<header id="page-header" class="page-header">
-		<div class="wrapper">
+		<div class="site-wrapper">
 			<?php dynamic_sidebar($sidebarId); ?>
 		</div>
 	</header>

@@ -7,5 +7,5 @@
 	<?php get_template_part('template-widgets/head-utils'); ?>
 </head>
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="site" class="site">
 	<?php get_template_part('template-widgets/site-header'); ?>
