@@ -156,7 +156,6 @@ var emptybox = (function ($) {
 
 	// Init a widget when saved
 	$(document).on("widget-updated", function(event, widget){
-		console.log("@@@updated", widget);
 		if ($(widget).find('.id_base').val() === 'emptybox_parts') {
 			// Remove new flag
 			$(widget).removeAttr('__emptybox_basicparts_new');
