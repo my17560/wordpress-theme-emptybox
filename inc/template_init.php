@@ -100,7 +100,8 @@ add_action('wp_enqueue_scripts', 'emptybox_scripts_theme', 999);
  */
 function emptybox_scripts_admin($hook_suffix) {
 	if ($hook_suffix === 'widgets.php') {
-		wp_enqueue_script('emptybox_admin_js', get_template_directory_uri() . '/inc/widgets/emptybox_basicparts_admin.js');
+		wp_enqueue_script('emptybox_admin_basicparts_js', get_template_directory_uri() . '/inc/widgets/emptybox_basicparts_admin.js');
+		wp_enqueue_script('emptybox_admin_widgetarea_js', get_template_directory_uri() . '/inc/widgets/widgetarea_admin.js');
 	//	wp_enqueue_style('custom_css', get_template_directory_uri() . '/inc/css/custom.css');
 	}
 }
@@ -127,7 +128,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (Singular)', 'emptybox'),
+			'name'          => esc_html__('Page Header - Singular', 'emptybox'),
 			'id'            => 'page-header-singular',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -138,7 +139,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (Singular)', 'emptybox'),
+			'name'          => esc_html__('Entry Header - Singular', 'emptybox'),
 			'id'            => 'entry-header-singular',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -149,7 +150,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (Singular)', 'emptybox'),
+			'name'          => esc_html__('Entry Content - Singular', 'emptybox'),
 			'id'            => 'entry-content-singular',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -160,7 +161,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (Singular)', 'emptybox'),
+			'name'          => esc_html__('Entry Footer - Singular', 'emptybox'),
 			'id'            => 'entry-footer-singular',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -171,7 +172,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (Singular)', 'emptybox'),
+			'name'          => esc_html__('Page Footer - Singular', 'emptybox'),
 			'id'            => 'page-footer-singular',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -182,7 +183,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (Archive)', 'emptybox'),
+			'name'          => esc_html__('Page Header - Archive', 'emptybox'),
 			'id'            => 'page-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -193,7 +194,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Archive Header (Archive)', 'emptybox'),
+			'name'          => esc_html__('Archive Header - Archive', 'emptybox'),
 			'id'            => 'archive-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -204,7 +205,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (Archive)', 'emptybox'),
+			'name'          => esc_html__('Entry Header - Archive', 'emptybox'),
 			'id'            => 'entry-header-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -215,7 +216,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (Archive)', 'emptybox'),
+			'name'          => esc_html__('Entry Content - Archive', 'emptybox'),
 			'id'            => 'entry-content-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -226,7 +227,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (Archive)', 'emptybox'),
+			'name'          => esc_html__('Entry Footer - Archive', 'emptybox'),
 			'id'            => 'entry-footer-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -237,7 +238,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Archive Footer (Archive)', 'emptybox'),
+			'name'          => esc_html__('Archive Footer - Archive', 'emptybox'),
 			'id'            => 'archive-footer-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -248,7 +249,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (Archive)', 'emptybox'),
+			'name'          => esc_html__('Page Footer - Archive', 'emptybox'),
 			'id'            => 'page-footer-archive',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -260,7 +261,7 @@ function emptybox_widgets_init()
 	/*
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (Archive - No Result)', 'emptybox'),
+			'name'          => esc_html__('Page Header (Archive - No Result', 'emptybox'),
 			'id'            => 'page-header-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -272,7 +273,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (Archive - No Result)', 'emptybox'),
+			'name'          => esc_html__('Entry Header - Archive - No Result', 'emptybox'),
 			'id'            => 'entry-header-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -283,7 +284,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (Archive - No Result)', 'emptybox'),
+			'name'          => esc_html__('Entry Content - Archive - No Result', 'emptybox'),
 			'id'            => 'entry-content-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -294,7 +295,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (Archive - No Result)', 'emptybox'),
+			'name'          => esc_html__('Entry Footer - Archive - No Result', 'emptybox'),
 			'id'            => 'entry-footer-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -306,7 +307,7 @@ function emptybox_widgets_init()
 	/*
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (Archive - No Result)', 'emptybox'),
+			'name'          => esc_html__('Page Footer - Archive - No Result', 'emptybox'),
 			'id'            => 'page-footer-archive-noresult',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -318,7 +319,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Header (404)', 'emptybox'),
+			'name'          => esc_html__('Page Header - 404', 'emptybox'),
 			'id'            => 'page-header-404',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -329,7 +330,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Header (404)', 'emptybox'),
+			'name'          => esc_html__('Entry Header - 404', 'emptybox'),
 			'id'            => 'entry-header-404',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -340,7 +341,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Content (404)', 'emptybox'),
+			'name'          => esc_html__('Entry Content - 404', 'emptybox'),
 			'id'            => 'entry-content-404',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -351,7 +352,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Entry Footer (404)', 'emptybox'),
+			'name'          => esc_html__('Entry Footer - 404', 'emptybox'),
 			'id'            => 'entry-footer-404',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -362,7 +363,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Page Footer (404)', 'emptybox'),
+			'name'          => esc_html__('Page Footer - 404', 'emptybox'),
 			'id'            => 'page-footer-404',
 			'before_widget' => '',
 			'after_widget'  => '',
@@ -384,7 +385,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar (Left)', 'emptybox'),
+			'name'          => esc_html__('Sidebar - Left', 'emptybox'),
 			'id'            => 'sidebar-left',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -395,7 +396,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar (Right)', 'emptybox'),
+			'name'          => esc_html__('Sidebar - Right', 'emptybox'),
 			'id'            => 'sidebar-right',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -406,7 +407,7 @@ function emptybox_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar (Mobile)', 'emptybox'),
+			'name'          => esc_html__('Sidebar - Mobile', 'emptybox'),
 			'id'            => 'sidebar-mobile',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
